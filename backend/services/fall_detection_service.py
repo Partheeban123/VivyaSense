@@ -1,6 +1,6 @@
 """
 Fall Detection Service
-Uses YOLOv11 model (best.pt) for direct fall detection
+Uses YOLOv11 model (best_fall.pt) for direct fall detection - Fine-tuned model
 """
 # ============================================================================
 # GRU-BASED FALL DETECTION (COMMENTED OUT - KEPT FOR REFERENCE)
@@ -26,7 +26,7 @@ class FallDetectionService:
     Fall detection using YOLOv11 model for direct fall detection
 
     Pipeline:
-    1. YOLOv11 (best.pt) detects falls directly from frames
+    1. YOLOv11 (best_fall.pt) detects falls directly from frames - Fine-tuned model
 
     Note: GRU-based pose detection code is commented out below for reference
     """
@@ -40,7 +40,7 @@ class FallDetectionService:
         Initialize fall detection service
 
         Args:
-            yolo_model_path: Path to YOLOv11 fall detection model (best.pt)
+            yolo_model_path: Path to YOLOv11 fall detection model (best_fall.pt - fine-tuned)
             confidence_threshold: YOLO confidence threshold
         """
         # Device selection: CUDA > MPS (Apple Silicon) > CPU
@@ -55,12 +55,12 @@ class FallDetectionService:
 
         log.info(f"Fall detection service initializing on device: {self.device}")
 
-        # Load YOLO fall detection model (best.pt)
-        yolo_path = yolo_model_path or "./models/best.pt"
+        # Load YOLO fall detection model (best_fall.pt - fine-tuned)
+        yolo_path = yolo_model_path or "./models/best_fall.pt"
         if Path(yolo_path).exists():
             self.yolo_model = YOLO(yolo_path)
             self.yolo_model.to(self.device)
-            log.info(f"Loaded YOLOv11 fall detection model from {yolo_path}")
+            log.info(f"Loaded YOLOv11 fine-tuned fall detection model from {yolo_path}")
         else:
             log.error(f"YOLO fall detection model not found: {yolo_path}")
             raise FileNotFoundError(f"YOLO fall detection model not found: {yolo_path}")
@@ -125,7 +125,7 @@ class FallDetectionService:
         person_id: int = 0
     ) -> Dict[str, Any]:
         """
-        Process a single frame for fall detection using YOLO model (best.pt)
+        Process a single frame for fall detection using YOLO model (best_fall.pt - fine-tuned)
 
         Args:
             frame: Input frame (BGR)
