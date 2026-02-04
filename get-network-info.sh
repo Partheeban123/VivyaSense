@@ -1,0 +1,57 @@
+#!/bin/bash
+
+echo "=========================================="
+echo "   AI Vision Platform - Network Info"
+echo "=========================================="
+echo ""
+
+# Get local IP address (macOS)
+LOCAL_IP="192.168.0.199"
+
+if [ "$LOCAL_IP" = "Not found" ]; then
+    echo "⚠️  Could not detect local IP address automatically"
+    echo ""
+    echo "To find your IP manually:"
+    echo "1. Open System Preferences > Network"
+    echo "2. Select your active connection (Wi-Fi or Ethernet)"
+    echo "3. Look for 'IP Address'"
+else
+    echo "✅ Your Local IP Address: $LOCAL_IP"
+    echo ""
+    echo "=========================================="
+    echo "   Access URLs"
+    echo "=========================================="
+    echo ""
+    echo "📱 Frontend (Next.js):"
+    echo "   Local:    http://localhost:3000"
+    echo "   Network:  http://$LOCAL_IP:3000"
+    echo ""
+    echo "🔧 Backend (FastAPI):"
+    echo "   Local:    http://localhost:8000"
+    echo "   Network:  http://$LOCAL_IP:8000"
+    echo "   API Docs: http://$LOCAL_IP:8000/api/docs"
+    echo ""
+    echo "=========================================="
+    echo "   Share with Others"
+    echo "=========================================="
+    echo ""
+    echo "Others on the same Wi-Fi network can access:"
+    echo "   Frontend: http://$LOCAL_IP:3000"
+    echo "   Backend:  http://$LOCAL_IP:8000"
+    echo ""
+fi
+
+echo "=========================================="
+echo "   Important Notes"
+echo "=========================================="
+echo ""
+echo "1. Make sure both servers are running:"
+echo "   - Frontend: cd frontend && npm run dev"
+echo "   - Backend:  cd backend && source venv/bin/activate && python main.py"
+echo ""
+echo "2. Ensure your firewall allows connections on ports 3000 and 8000"
+echo ""
+echo "3. All devices must be on the same Wi-Fi network"
+echo ""
+echo "=========================================="
+
