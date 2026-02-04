@@ -54,7 +54,6 @@ backend/models/*.pth
 backend/models/*.onnx
 backend/models/*.h5
 backend/models/*.pkl
-backend/models/
 !backend/models/README.md
 !backend/models/.gitkeep
 
