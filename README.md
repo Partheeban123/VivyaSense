@@ -1,4 +1,6 @@
-# AI Vision Platform 🎥🤖
+# VivyaSense - AI Vision Platform 🎥🤖
+
+**AI CCTV Surveillance System**
 
 A production-ready AI-powered video surveillance platform with real-time detection capabilities for PPE, fall, and fire/smoke detection using advanced deep learning models.
 
@@ -292,4 +294,3 @@ For issues and questions, please open a GitHub issue.
 ---
 
 Built with ❤️ using FastAPI, Next.js, and advanced AI technologies
-
